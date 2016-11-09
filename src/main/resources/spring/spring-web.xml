@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:content="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 配置Spring MVC -->
+    <!-- 1:开启Spring MVC 注解模式 -->
+    <mvc:annotation-driven/>
+    <!-- 2:servlet-mapping 映射路径:"/" -->
+    <!-- 静态资源配置:jpg,js,css -->
+    <mvc:default-servlet-handler/>
+    <!-- 3:配置JSP的显示 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <content:component-scan base-package="com.lzx2005.web"/>
+
+    <!-- 配置默认访问方法 -->
+    <mvc:view-controller path="/" view-name="common/index"/>
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <mvc:mapping path="/admin"/>
+            <bean id="LoginInterceptor" class="com.lzx2005.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin_restful/**"/>
+            <bean id="AdminRestfulInterceptor" class="com.lzx2005.interceptor.AdminRestfulInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <mvc:mapping path="/*/*"/>
+            <mvc:mapping path="/*/*/*"/>
+            <bean id="CommonInterceptor" class="com.lzx2005.interceptor.CommonInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!-- 静态资源访问 -->
+    <mvc:resources location="/resources/upload_img" mapping="/img/**"/>
+    <!--<mvc:resources location="/js/" mapping="/js/**"/>-->
+
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="maxUploadSize" value="10485760000"></property>
+        <property name="maxInMemorySize" value="40960"></property>
+    </bean>
+
+</beans>

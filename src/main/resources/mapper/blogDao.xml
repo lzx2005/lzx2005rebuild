@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzx2005.dao.BlogDao">
+    <insert id="insertBlog">
+        INSERT INTO `blog` (title,author,description,content,blog_type)
+        VALUES (#{title},#{author},#{description},#{content},#{blogType})
+    </insert>
+
+    <insert id="insertBlogWithMarkdown">
+        INSERT INTO `blog` (title,author,description,content,blog_type,markdown)
+        VALUES (#{title},#{author},#{description},#{content},#{blogType},#{markdown})
+    </insert>
+    <select id="queryById" resultType="com.lzx2005.entity.Blog">
+        SELECT * FROM `blog` WHERE blog_id = #{blogId}
+    </select>
+
+    <select id="findAll" resultType="com.lzx2005.entity.Blog">
+        SELECT * FROM `blog`
+        ORDER BY create_time DESC
+        LIMIT #{offset},#{limit}
+    </select>
+
+    <select id="countBlog" resultType="long">
+        select count(1) from blog;
+    </select>
+
+    <update id="deleteBlog">
+        DELETE FROM `blog` WHERE blog_id = #{blogId};
+    </update>
+
+    <update id="updateBlog" parameterType="Blog">
+        UPDATE `blog`
+        SET
+            title=#{title},
+            author=#{author},
+            description=#{description},
+            content=#{content},
+            blog_type=#{blogType}
+        WHERE blog_id = #{blogId};
+    </update>
+</mapper>

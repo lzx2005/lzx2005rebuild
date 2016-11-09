@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzx2005.dao.ImageDao">
+    <insert id="addImage">
+        INSERT INTO `image` (name,relative_path,absolute_path,size,upload_time)
+        VALUES (#{name},#{relativePath},#{absolutePath},#{size},#{uploadTime})
+    </insert>
+
+    <insert id="addImageReturnId" parameterType="Image" useGeneratedKeys="true" keyProperty="imageId">
+        INSERT INTO `image` (name,relative_path,absolute_path,size,upload_time)
+        VALUES (#{name},#{relativePath},#{absolutePath},#{size},#{uploadTime})
+    </insert>
+
+    <select id="queryById" resultType="com.lzx2005.entity.Image">
+        SELECT * FROM `image` WHERE image_id = #{imageId}
+    </select>
+</mapper>

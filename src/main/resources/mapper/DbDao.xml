@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzx2005.dao.Db">
+    <select id="countBlog" resultType="long">
+        select count(*) as countBlog from blog;
+    </select>
+
+    <select id="paginate" statementType="STATEMENT">
+        select * from ${tableName} limit #{page},#{pageSize}
+    </select>
+</mapper>
