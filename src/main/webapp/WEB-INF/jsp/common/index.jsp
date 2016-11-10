@@ -51,8 +51,8 @@
                         <p>${item.description }</p>
                         <p>
                             <a class="btn btn-default" href="<%=basePath%>blog/${item.blogId}/overview" role="button">View details »</a>
-                            <%--<a class="btn btn-primary" href="#" role="button">See More</a>
-                            <a class="btn btn-danger" href="#" role="button">Delete</a>--%>
+                            <%--<a class="btn btn-primary" href="#" role="button">See More</a>--%>
+                            <span class="pull-right">浏览量：${item.view}</span>
                         </p>
                     </div>
                 </c:forEach>

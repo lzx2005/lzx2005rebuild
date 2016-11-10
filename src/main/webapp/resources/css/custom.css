@@ -20,8 +20,8 @@ input{
 /* 自定义样式 */
 
 .jumb-block{
-    background-color: #66afe9;
     padding-top: 88px;
+    background: url("/resources/image/back1.jpg") fixed;
 }
 
 .font1{
@@ -68,10 +68,10 @@ input{
     color: #e1e1e1;
 }
 
-/* 重新定义按钮颜色
+/* 重新定义按钮颜色*/
 .btn-primary{
     background-color: #66afe9 !important;
-}*/
+}
 
 .top-60{
     margin-top: 60px;

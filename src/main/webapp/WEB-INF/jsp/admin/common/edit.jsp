@@ -78,7 +78,7 @@
                 console.log(data);
                 if(data['success']==true){
                     alert("文章修改成功");
-                    window.location.href("<%=basePath%>admin/blog");
+                    window.location.href="<%=basePath%>admin/blog";
                 }else{
                     alert("文章修改失败:"+data['msg']);
                 }

@@ -9,7 +9,7 @@
         <li><a href="http://v3.bootcss.com/examples/dashboard/#">Export</a></li>--%>
     </ul>
     <ul class="nav nav-sidebar">
-        <li <c:if test="${actionName=='/admin/blog'}">class="active"</c:if>><a href="<%=basePath%>admin/blog">博文管理</a></li>
+        <li <c:if test="${actionName=='/admin/blog'||actionName=='/admin/blog_edit'}">class="active"</c:if>><a href="<%=basePath%>admin/blog">博文管理</a></li>
         <li <c:if test="${actionName=='/admin/blog_add_markdown'}">class="active"</c:if>><a href="<%=basePath%>admin/blog_add_markdown">写文章</a></li>
         <%--<li><a href="http://v3.bootcss.com/examples/dashboard/">One more nav</a></li>
         <li><a href="http://v3.bootcss.com/examples/dashboard/">Another nav item</a></li>
