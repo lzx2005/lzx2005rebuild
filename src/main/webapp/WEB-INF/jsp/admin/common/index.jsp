@@ -28,26 +28,22 @@
             <h1 class="page-header">Dashboard</h1>
 
             <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
+                <a href="<%=basePath%>admin/blog">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <span class="glyphicon glyphicon-list"></span>
+                        <br/>
+                        <h4>文章管理</h4>
+                        <span class="text-muted">文章管理</span>
+                    </div>
+                </a>
+                <a href="<%=basePath%>admin/blog_add_markdown">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <br/>
+                        <h4>写文章</h4>
+                        <span class="text-muted">写文章</span>
+                    </div>
+                </a>
             </div>
 
             <h2 class="sub-header">Section title</h2>

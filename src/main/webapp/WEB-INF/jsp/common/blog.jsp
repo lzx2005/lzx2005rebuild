@@ -30,7 +30,7 @@
 <div class="container top-60">
     <div class="row">
         <div class="col-md-12">
-            <div class="row" id="content">
+            <div class="row add-padding" id="content">
                 <c:if test="${blog.markdown == 1}">
                     载入中...
                 </c:if>

@@ -30,7 +30,7 @@ input{
 }
 
 .blog-block{
-    padding: 0px 10px;
+    padding: 10px 10px;
     margin: 0 10px 10px 10px;
     background-color: white;
 }
@@ -43,7 +43,11 @@ input{
 .my-info{
     background-color: white;
     padding: 0px 10px 10px 10px;
-    margin: 0 10px 10px 10px;
+}
+
+.add-padding{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .my-avatar{
