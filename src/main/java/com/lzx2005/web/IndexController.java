@@ -55,6 +55,10 @@ public class IndexController {
         ServiceResult<Blog> result = blogService.getBlog(blogId);
         if(result.isSuccess()){
             //查找成功
+            long view = result.getData().getView();
+            view++;
+            result.getData().setView(view);
+            blogService.editBlog(result.getData());
             model.addAttribute(result.getData());
             return "common/blog";
         }else{

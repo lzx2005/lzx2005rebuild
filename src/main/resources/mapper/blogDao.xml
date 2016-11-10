@@ -37,7 +37,8 @@
             author=#{author},
             description=#{description},
             content=#{content},
-            blog_type=#{blogType}
+            blog_type=#{blogType},
+            view=#{view}
         WHERE blog_id = #{blogId};
     </update>
 </mapper>
