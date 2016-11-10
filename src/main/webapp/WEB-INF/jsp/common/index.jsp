@@ -19,6 +19,17 @@
     <base href="<%=basePath %>"/>
     <%@include file="../layout/css.jsp" %>
     <%@include file="../layout/script.jsp" %>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5bef8f5da35287848ce290a02d44a04e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 
 <body>
