@@ -42,12 +42,13 @@
                 <div class="form-group">
                     <label class="col-sm-1 control-label">Markdown：</label>
                     <div class="col-sm-11">
-                        <textarea class="form-control" rows="10" id="content" name="content">
+                        <textarea class="form-control" rows="30" id="content" name="content">
 ## Markdown Source Here
 ### 反馈与建议
 
 - 微博：[@lzx2005](http://weibo.com/u/2557929062)
-- 邮箱：[crow2005@vip.qq.com]&lt;crow2005@vip.qq.com&gt;</textarea>
+- 邮箱：&lt;crow2005@vip.qq.com&gt;
+                        </textarea>
                     </div>
                 </div>
 
