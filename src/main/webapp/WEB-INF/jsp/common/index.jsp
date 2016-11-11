@@ -36,11 +36,11 @@
 
 <%@include file="../layout/nav.jsp" %>
 
-<div class="jumbotron jumb-block">
-    <div class="container">
+<div class="jumbotron jumb-block text-center">
+    <div class="container jumb-container">
         <h1>Hello!</h1>
         <p>三年Java Web在校外包经验，使用过Spring，Spring MVC，Mybatis，Jfinal等开源框架，使用过ActiveMQ消息队列、Ehcache缓存框架，可以设计Restful接口等，前端方面使用过Bootstrap等。</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">简历 »</a></p>
+        <p><a class="button button-3d button-primary button-rounded" href="#" role="button">简历 »</a></p>
     </div>
 </div>
 
@@ -61,7 +61,7 @@
                         </div>
                         <p>${item.description }</p>
                         <p>
-                            <a class="btn btn-default" href="<%=basePath%>blog/${item.blogId}/overview" role="button">View details »</a>
+                            <a class="button button-3d button-primary button-rounded" href="<%=basePath%>blog/${item.blogId}/overview" role="button">View details »</a>
                             <%--<a class="btn btn-primary" href="#" role="button">See More</a>--%>
                             <span class="pull-right">浏览量：${item.view}</span>
                         </p>

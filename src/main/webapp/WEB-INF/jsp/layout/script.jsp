@@ -17,4 +17,5 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<%=basePath %>resources/js/ie10-viewport-bug-workaround.js"></script>
 <script src="<%=basePath %>resources/js/md5.js"></script>
+<script src="//cdn.bootcss.com/Buttons/2.0.0/js/buttons.min.js"></script>
 <script src="<%=basePath %>resources/js/custom.js"></script>

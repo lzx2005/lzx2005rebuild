@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-custom">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <input type="password" placeholder="密码" id="password" name="password" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-success">登录</button>
+                        <button type="submit" class="button button-primary button-small">登录</button>
                     </form>
                 </c:when>
                 <c:otherwise>

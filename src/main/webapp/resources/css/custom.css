@@ -22,10 +22,64 @@ h2{
 }
 /* 自定义样式 */
 
-.jumb-block{
-    padding-top: 88px;
-    background: url("/resources/image/back1.jpg") fixed;
+.navbar-custom{
+    background-color: white;
+    border: 0px solid black;
+    border-top: 4px solid #1b9af7;
+    height: 80px;
+    padding-top: 15px;
+    box-shadow: 0px 1px 9px 1px #cfcfcf;
+    margin-bottom: 50px;
+    border-radius: 0px !important;
 }
+
+.navbar-inverse .navbar-brand{
+    color: #303030;
+}
+
+.navbar-inverse .navbar-brand:hover{
+    color: #1b9af7;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar{
+    background-color: #000;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    background-color: white;
+}
+.navbar-inverse .navbar-form{
+    border: 0px solid black;
+}
+.jumb-block{
+    color: white;
+    padding: 150px 0px;
+    background: url("/resources/image/back4.jpg") fixed;
+}
+
+
+@media (min-width: 1200px) {
+    .jumb-block{
+        line-height: 50px;
+        padding: 150px 300px;
+    }
+    .jumb-container{
+        padding: 0px 100px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .jumb-container{
+        padding: 0px 150px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .jumb-container{
+        padding: 0px 200px;
+    }
+}
+
 
 .font1{
     color: gray;
@@ -81,10 +135,16 @@ h2{
     color: #e1e1e1;
 }
 
-/* 重新定义按钮颜色*/
-.btn-primary{
-    background-color: #66afe9 !important;
+
+.btn{
+    border: 0px solid black;
 }
+
+/* 重新定义输入框的大小 */
+.form-control{
+    height: 32px;
+}
+
 
 .top-60{
     margin-top: 60px;
@@ -100,4 +160,16 @@ markdown美化
 
 pre{
     background-color: #FFFFFF !important;
+}
+/*
+ * 定义一些颜色
+ */
+.text-origin{
+    color: #fa4b2a;
+}
+
+
+/* Button */
+.button-small{
+    height: 32px;
 }
