@@ -21,7 +21,9 @@
                         <div class="form-group">
                             <input type="password" placeholder="密码" id="password" name="password" class="form-control">
                         </div>
-                        <button type="submit" class="button button-primary button-small">登录</button>
+                        <div class="form-group">
+                            <button type="submit" class="button button-primary button-small">登录</button>
+                        </div>
                     </form>
                 </c:when>
                 <c:otherwise>

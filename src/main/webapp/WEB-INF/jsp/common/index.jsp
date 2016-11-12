@@ -54,17 +54,23 @@
 
                 <c:forEach var="item" items="${blogs.data.list }" varStatus="status">
                     <div class="col-md-12 blog-block">
-                        <h2>${item.title }</h2>
-                        <div class="font1">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> ${item.author }
-                            <span class="pull-right"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd hh:MM:ss"/> </span>
+                        <h2 class="add-padding-left-right">${item.title }</h2>
+                        <p class="add-padding-left-right">${item.description }</p>
+                        <div class="col-md-3">
+                            <p class="sec-title">作者</p>
+                            <p class="sec-body">${item.author }</p>
                         </div>
-                        <p>${item.description }</p>
-                        <p>
-                            <a class="button button-3d button-primary button-rounded" href="<%=basePath%>blog/${item.blogId}/overview" role="button">View details »</a>
-                            <%--<a class="btn btn-primary" href="#" role="button">See More</a>--%>
-                            <span class="pull-right">浏览量：${item.view}</span>
-                        </p>
+                        <div class="col-md-3">
+                            <p class="sec-title">发布时间</p>
+                            <p class="sec-body"><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="sec-title">浏览量</p>
+                            <p class="sec-body">${item.view}次</p>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="button button-3d button-primary button-rounded" href="<%=basePath%>blog/${item.blogId}/overview" role="button">阅读全文</a>
+                        </div>
                     </div>
                 </c:forEach>
                 <div class="col-md-12 blog-block-page">

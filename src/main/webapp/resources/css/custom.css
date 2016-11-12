@@ -5,6 +5,10 @@ body{
     font-family: "Microsoft YaHei UI","Microsoft YaHei UI Light";
 }
 
+.button{
+    font-family: "Microsoft YaHei UI","Microsoft YaHei UI Light" !important;
+}
+
 button{
     border-radius: 0 !important;
 }
@@ -20,6 +24,12 @@ input{
 h2{
     margin-top: 10px;
 }
+@media (min-width: 992px){
+    .my-info{
+        margin-left: 10px;
+    }
+}
+
 /* 自定义样式 */
 
 .navbar-custom{
@@ -80,15 +90,24 @@ h2{
     }
 }
 
+.add-padding-left-right{
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
-.font1{
+.sec-title{
     color: gray;
     font-size: 11px;
 }
 
+.sec-body{
+    color: #1b9af7;
+    font-size: 20px;
+}
+
 .blog-block{
     padding: 10px 10px;
-    margin: 0 10px 10px 10px;
+    margin: 0 10px 20px 10px;
     background-color: white;
 }
 
