@@ -38,9 +38,9 @@
 
 <div class="jumbotron jumb-block text-center">
     <div class="container jumb-container">
-        <h1>Hello!</h1>
-        <p>三年Java Web在校外包经验，使用过Spring，Spring MVC，Mybatis，Jfinal等开源框架，使用过ActiveMQ消息队列、Ehcache缓存框架，可以设计Restful接口等，前端方面使用过Bootstrap等。</p>
-        <p><a class="button button-3d button-primary button-rounded" href="#" role="button">简历 »</a></p>
+        <h2>Hello!</h2>
+        <p>如果发出声音是危险的，那就保持沉默；如果自觉无力发光，那就别去照亮别人。但是，不要习惯了黑暗就为黑暗辩护；不要为自己的苟且而得意洋洋；不要嘲讽那些比自己更勇敢、更有热量的人们。可以卑微如尘土，不可扭曲如蛆虫。</p>
+        <p><a class="button button-3d button-primary button-rounded" href="#" role="button">关于我</a></p>
     </div>
 </div>
 

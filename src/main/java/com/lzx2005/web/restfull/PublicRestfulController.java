@@ -41,4 +41,13 @@ public class PublicRestfulController {
        return new AjaxResult<String>(false,"未登陆",null);
     }
 
+
+    @RequestMapping(
+            value = "message_submit",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public AjaxResult<String> messageSubmit(HttpServletRequest res, HttpServletResponse response){
+        return new AjaxResult<String>(false,"该功能暂未开发，尽情期待",null);
+    }
 }

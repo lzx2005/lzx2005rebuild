@@ -13,16 +13,26 @@
                 <h4>Social Network</h4>
                 <hr/>
                 <ul>
-                    <li>微博：</li>
-                    <li>知乎：</li>
-                    <li>GitHub：</li>
-                    <li>邮箱：</li>
+                    <li>微博：<a href="http://weibo.com/u/2557929062" target="_blank">lzx2005</a></li>
+                    <li>知乎：<a href="https://www.zhihu.com/people/lzx2005" target="_blank">知乎账号</a></li>
+                    <li>GitHub：<a href="http://github.com/lzx2005" target="_blank">lzx2005</a></li>
+                    <li>邮箱：<a href="mailto:978744976@qq.com">邮箱地址</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <h4>Contact Me</h4>
                 <hr/>
-                把任务交给我，CTO你就放心地去玩吧~
+                <form method="post">
+                    <div class="form-group">
+                        <input type="email" placeholder="邮箱" id="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="留言" id="message" name="message" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <a class="button button-block button-primary button-small" onclick="messageScript.doSubmitMessage()">给我留言</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

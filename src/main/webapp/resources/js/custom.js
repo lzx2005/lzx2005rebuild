@@ -80,7 +80,6 @@ var blogScript = {
         deleteUrl: "/admin_restful/blog/delete"
     },
     doDelete: function (blogId) {
-        var realUrl = blogScript.URL.deleteUrl;
         swal({
             title: "注意",
             text: "确定要删除当前文章吗？",
@@ -122,5 +121,37 @@ var blogScript = {
                 }
             });
         });
+    }
+}
+
+
+
+var messageScript = {
+    URL : {
+        messageSubmitUrl: "/public/message_submit"
+    },
+    doSubmitMessage: function () {
+        var email = $("#email").val();
+        var message = $("#message").val();
+        var realUrl = messageScript.URL.messageSubmitUrl;
+        $.ajax({
+            url: realUrl,
+            type: 'POST',
+            data: {
+                email:email,
+                message:message
+            },
+            success:function (data, textStatus) {
+                if(data['success']==true){
+                    alert(data['msg']);
+                }else{
+                    alert(data['msg']);
+                }
+            },
+            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("请求失败");
+            }
+        });
+        return false;
     }
 }
