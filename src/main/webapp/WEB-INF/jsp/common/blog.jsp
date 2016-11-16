@@ -1,6 +1,5 @@
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getContextPath()+"/";
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../layout/tag.jsp" %>

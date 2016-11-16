@@ -1,6 +1,5 @@
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getContextPath()+"/";
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../layout/tag.jsp" %>
@@ -52,25 +51,7 @@
                 <article class="blog-block">
                     <h2 class="text-center line-height-50"><a href="<%=basePath%>blog/${item.blogId}/overview">${item.title }</a></h2>
                     <p class="sec-title text-center line-height-50">作者：${item.author } •<fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>
-
-
                     <p class="">${item.description }</p>
-                    <%--<div class="row">--%>
-                        <%--<div class="col-md-3">--%>
-                            <%--<p class="sec-title">作者</p>--%>
-                            <%--<p class="sec-body">${item.author }</p>--%>
-                        <%--</div>--%>
-                        <%--<div class="col-md-3">--%>
-                            <%--<p class="sec-title">发布时间</p>--%>
-                            <%--<p class="sec-body"><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>--%>
-                        <%--</div>--%>
-                        <%--<div class="col-md-3">--%>
-                            <%--<p class="sec-title">浏览量</p>--%>
-                            <%--<p class="sec-body">${item.view}次</p>--%>
-                        <%--</div>--%>
-                        <%--<div class="col-md-3">--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
                     <hr/>
                     <div class="button-div">
                         <a class="button button-3d button-primary button-rounded" href="<%=basePath%>blog/${item.blogId}/overview" role="button">阅读全文</a>
