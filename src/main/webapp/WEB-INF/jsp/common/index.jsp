@@ -47,41 +47,46 @@
 <div class="container">
 
     <div class="row">
-
         <div class="col-md-8">
+            <c:forEach var="item" items="${blogs.data.list }" varStatus="status">
+                <article class="blog-block">
+                    <h2 class="text-center"><a href="<%=basePath%>blog/${item.blogId}/overview">${item.title }</a></h2>
+                    <p class="sec-title text-center">作者：${item.author } •<fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>
 
-            <div class="row">
 
-                <c:forEach var="item" items="${blogs.data.list }" varStatus="status">
-                    <div class="col-md-12 blog-block">
-                        <h2 class="add-padding-left-right">${item.title }</h2>
-                        <p class="add-padding-left-right">${item.description }</p>
-                        <div class="col-md-3">
-                            <p class="sec-title">作者</p>
-                            <p class="sec-body">${item.author }</p>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="sec-title">发布时间</p>
-                            <p class="sec-body"><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="sec-title">浏览量</p>
-                            <p class="sec-body">${item.view}次</p>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="button button-3d button-primary button-rounded" href="<%=basePath%>blog/${item.blogId}/overview" role="button">阅读全文</a>
-                        </div>
+                    <p class="">${item.description }</p>
+                    <%--<div class="row">--%>
+                        <%--<div class="col-md-3">--%>
+                            <%--<p class="sec-title">作者</p>--%>
+                            <%--<p class="sec-body">${item.author }</p>--%>
+                        <%--</div>--%>
+                        <%--<div class="col-md-3">--%>
+                            <%--<p class="sec-title">发布时间</p>--%>
+                            <%--<p class="sec-body"><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>--%>
+                        <%--</div>--%>
+                        <%--<div class="col-md-3">--%>
+                            <%--<p class="sec-title">浏览量</p>--%>
+                            <%--<p class="sec-body">${item.view}次</p>--%>
+                        <%--</div>--%>
+                        <%--<div class="col-md-3">--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <hr/>
+                    <div class="button-div">
+                        <a class="button button-3d button-primary button-rounded" href="<%=basePath%>blog/${item.blogId}/overview" role="button">阅读全文</a>
                     </div>
-                </c:forEach>
-                <div class="col-md-12 blog-block-page">
-                    <%@include file="../layout/page.jsp"%>
-                </div>
+
+                </article>
+            </c:forEach>
+            <div class="col-md-12 blog-block-page">
+                <%@include file="../layout/page.jsp"%>
             </div>
 
 
         </div>
         <div class="col-md-4">
-            <div class="my-info">
+            <div class="blog-block">
+                <h4 class="h2title">这是个小标题</h4>
                 <div class="text-center">
                     <img class="my-avatar" src="<%=basePath%>resources/image/avatar.png">
                 </div>

@@ -12,9 +12,17 @@ body{
 button{
     border-radius: 0 !important;
 }
-
 a{
     border-radius: 0 !important;
+}
+
+.blog-block h2 a{
+    color: black;
+}
+
+.blog-block h2 a:hover{
+    text-decoration: none;
+    color: black;
 }
 
 input{
@@ -24,6 +32,28 @@ input{
 h2{
     margin-top: 10px;
 }
+
+@media (min-width: 992px){
+    article{
+        line-height: 50px;
+    }
+}
+
+.h2title{
+    position: relative;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+}
+.h2title:after{
+    content: "";
+    width: 90px;
+    height: 1px;
+    background: #1b9af7;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
+
 @media (min-width: 992px){
     .my-info{
         margin-left: 10px;
@@ -106,14 +136,17 @@ h2{
 }
 
 .blog-block{
-    padding: 10px 10px;
-    margin: 0 10px 20px 10px;
+    padding: 35px;
     background-color: white;
+    margin-bottom: 35px;
 }
 
 .blog-block-page{
     padding: 0px 10px;
     margin: 0 10px 10px 10px;
+}
+.button-div{
+
 }
 
 .my-info{
