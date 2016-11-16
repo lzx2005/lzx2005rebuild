@@ -50,8 +50,8 @@
         <div class="col-md-8">
             <c:forEach var="item" items="${blogs.data.list }" varStatus="status">
                 <article class="blog-block">
-                    <h2 class="text-center"><a href="<%=basePath%>blog/${item.blogId}/overview">${item.title }</a></h2>
-                    <p class="sec-title text-center">作者：${item.author } •<fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>
+                    <h2 class="text-center line-height-50"><a href="<%=basePath%>blog/${item.blogId}/overview">${item.title }</a></h2>
+                    <p class="sec-title text-center line-height-50">作者：${item.author } •<fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></p>
 
 
                     <p class="">${item.description }</p>

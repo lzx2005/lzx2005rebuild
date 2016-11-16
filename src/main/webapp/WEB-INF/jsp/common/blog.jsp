@@ -27,17 +27,22 @@
 <%@include file="../layout/nav.jsp" %>
 
 
-<div class="container top-60">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="row add-padding" id="content">
-                <c:if test="${blog.markdown == 1}">
-                    载入中...
-                </c:if>
-                <c:if test="${blog.markdown == 0}">
-                    ${blog.content }
-                </c:if>
-            </div>
+            <article class="blog-block" style="min-height: 500px">
+                <h2 class="text-center line-height-50">${blog.title }</h2>
+                <p class="sec-title text-center line-height-50">作者：${blog.author } •<fmt:formatDate value="${blog.createTime}" pattern="yyyy-MM-dd"/></p>
+                <hr/>
+                <div class="row add-padding" id="content">
+                    <c:if test="${blog.markdown == 1}">
+                        载入中...
+                    </c:if>
+                    <c:if test="${blog.markdown == 0}">
+                        ${blog.content }
+                    </c:if>
+                </div>
+            </article>
         </div>
     </div>
 

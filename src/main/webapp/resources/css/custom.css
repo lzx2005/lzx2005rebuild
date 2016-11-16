@@ -34,7 +34,7 @@ h2{
 }
 
 @media (min-width: 992px){
-    article{
+    .line-height-50{
         line-height: 50px;
     }
 }
@@ -211,7 +211,8 @@ markdown美化
 }
 
 pre{
-    background-color: #FFFFFF !important;
+    background-color: #2d2d2d !important;
+    color: wheat;
 }
 /*
  * 定义一些颜色
