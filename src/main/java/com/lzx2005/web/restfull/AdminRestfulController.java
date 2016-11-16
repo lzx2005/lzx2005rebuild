@@ -157,7 +157,7 @@ public class AdminRestfulController {
 
         User user = (User)res.getSession().getAttribute("user");
         String author = user.getUsername();
-        ServiceResult<Blog> result = blogService.createBlog(title, author,desc, content, (short) 0, (short) 1);
+        ServiceResult<Blog> result = blogService.createBlog(title, author,desc, content, (short) 0, (short) 1,"");
         if(result.isSuccess()){
             return new AjaxResult<Blog>(true,"文章发布成功",result.getData());
         }else{

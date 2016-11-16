@@ -25,14 +25,8 @@ public class BlogServiceTest {
     private BlogService blogService;
 
     @Test
-    public void createBlog() throws Exception {
-        ServiceResult<Blog> result = blogService.createBlog("Service test","lzx2005","描述", "test", (short) 0);
-        System.out.println(result);
-    }
-
-    @Test
     public void createBlogWithMarkdown(){
-        ServiceResult<Blog> result = blogService.createBlog("Service test markdown","lzx2005","描述", "test", (short) 0,(short)1);
+        ServiceResult<Blog> result = blogService.createBlog("Service test markdown","lzx2005","描述", "test", (short) 0,(short)1,"Linux,Java,PHP");
     }
 
     @Test

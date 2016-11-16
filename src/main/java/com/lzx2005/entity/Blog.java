@@ -19,6 +19,7 @@ public class Blog {
     private Date createTime;
     private long view;
     private short blogType;
+    private String tags;
 
     private short markdown;
 
@@ -94,6 +95,15 @@ public class Blog {
         this.description = description;
     }
 
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+
     @Override
     public String toString() {
         return "Blog{" +
@@ -105,6 +115,7 @@ public class Blog {
                 ", createTime=" + createTime +
                 ", view=" + view +
                 ", blogType=" + blogType +
+                ", tags='" + tags + '\'' +
                 ", markdown=" + markdown +
                 '}';
     }

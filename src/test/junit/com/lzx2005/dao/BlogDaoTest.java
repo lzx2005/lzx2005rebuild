@@ -21,15 +21,10 @@ public class BlogDaoTest {
     @Autowired
     BlogDao blogDao;
 
-    @Test
-    public void insertBlog() throws Exception {
-        int result = blogDao.insertBlog("测试标题","lzx2005","描述","测试内容",(short)0);
-        System.out.println(result);
-    }
 
     @Test
     public void insertBlogWithMarkdown(){
-        int resule = blogDao.insertBlogWithMarkdown("测试标题WithMarkdown","lzx2005","描述","测试内容",(short)0,(short) 1);
+        int resule = blogDao.insertBlog("测试标题WithMarkdown","lzx2005","描述","测试内容",(short)0,(short) 1,"Java,Linux");
     }
 
     @Test

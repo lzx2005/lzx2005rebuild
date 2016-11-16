@@ -4,13 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lzx2005.dao.BlogDao">
     <insert id="insertBlog">
-        INSERT INTO `blog` (title,author,description,content,blog_type)
-        VALUES (#{title},#{author},#{description},#{content},#{blogType})
-    </insert>
-
-    <insert id="insertBlogWithMarkdown">
-        INSERT INTO `blog` (title,author,description,content,blog_type,markdown)
-        VALUES (#{title},#{author},#{description},#{content},#{blogType},#{markdown})
+        INSERT INTO `blog` (title,author,description,content,blog_type,markdown,tags)
+        VALUES (#{title},#{author},#{description},#{content},#{blogType},#{markdown},#{tags})
     </insert>
     <select id="queryById" resultType="com.lzx2005.entity.Blog">
         SELECT * FROM `blog` WHERE blog_id = #{blogId}
@@ -38,7 +33,8 @@
             description=#{description},
             content=#{content},
             blog_type=#{blogType},
-            view=#{view}
+            view=#{view},
+            tags=#{tags}
         WHERE blog_id = #{blogId};
     </update>
 </mapper>
