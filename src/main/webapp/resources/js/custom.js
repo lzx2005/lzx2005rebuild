@@ -16,7 +16,7 @@ var tool = {
      */
     notNull: function (text) {
         text = $.trim(text);
-        return (typeof(text) != "undefined" && text.length > 0) ? true : false;
+        return !!(typeof(text) != "undefined" && text.length > 0);
     },
 
     /**

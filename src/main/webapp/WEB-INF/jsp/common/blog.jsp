@@ -29,7 +29,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <article class="blog-block" style="min-height: 500px">
+            <article class="blog-block-all" style="min-height: 500px">
                 <h2 class="text-center line-height-50">${blog.title }</h2>
                 <p class="sec-title text-center line-height-50">作者：${blog.author } •<fmt:formatDate value="${blog.createTime}" pattern="yyyy-MM-dd"/></p>
                 <hr/>

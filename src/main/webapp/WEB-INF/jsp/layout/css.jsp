@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link href="//cdn.bootcss.com/highlight.js/9.7.0/styles/tomorrow.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/highlight.js/9.8.0/styles/rainbow.min.css" rel="stylesheet">
 <%--
 <link href="//cdn.bootcss.com/highlight.js/9.7.0/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
 --%>
