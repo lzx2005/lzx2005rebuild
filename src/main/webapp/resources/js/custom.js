@@ -107,7 +107,16 @@ var loginScript = {
             loginScript.beforeSubmit(validate);
         });
         $("#submitBtn").click(function () {
-            captchaObj.show();
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            if (tool.notNullAll(username, password)) {
+                captchaObj.show();
+            }else{
+                //todo 这边要好看点的弹窗
+                alert("请填写账号密码");
+            }
         });
         // 将验证码加到id为captcha的元素里
         captchaObj.appendTo("#popup-captcha");

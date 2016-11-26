@@ -34,6 +34,7 @@
                         <th>标题</th>
                         <th>作者</th>
                         <th>类型</th>
+                        <th>浏览量</th>
                         <th>是否为Markdown语言</th>
                         <th>操作</th>
                     </tr>
@@ -46,6 +47,7 @@
                             <td>${item.title }</td>
                             <td>${item.author }</td>
                             <td>${item.blogType }</td>
+                            <td>${item.view }</td>
                             <td>
                                 <c:choose>
                                     <c:when test="${item.markdown == 1}">是</c:when>
