@@ -1,6 +1,5 @@
 package com.lzx2005.dao.elasticsearch;
 
-import com.lzx2005.dao.elasticsearch.repository.UserRepository;
 import com.lzx2005.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,11 +12,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
+/*
 @ContextConfiguration({"classpath:spring-data-elasticsearch.xml"})
+*/
 public class ElasticsearchTest {
 
-    @Autowired
-    private UserRepository repository;
+    /*@Autowired
+    private UserRepository repository;*/
 
     @Test
     public void doSomething(){
@@ -25,7 +26,7 @@ public class ElasticsearchTest {
         User user = new User();
         user.setUsername("John");
         user.setPassword("password");*/
-        User user = repository.findByUsername("lzx2005");
-        System.out.println(user);
+        /*User user = repository.findByUsername("lzx2005");
+        System.out.println(user);*/
     }
 }

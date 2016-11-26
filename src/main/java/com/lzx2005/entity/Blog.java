@@ -1,7 +1,5 @@
 package com.lzx2005.entity;
 
-import org.springframework.data.annotation.Id;
-
 import java.util.Date;
 
 /**
@@ -10,7 +8,6 @@ import java.util.Date;
 
 public class Blog {
 
-    @Id
     private long blogId;
     private String title;
     private String content;

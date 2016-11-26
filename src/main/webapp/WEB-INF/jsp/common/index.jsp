@@ -66,33 +66,38 @@
 
         </div>
         <div class="col-md-4">
-            <div class="blog-block">
-                <h4 class="h2title">这是个小标题</h4>
+            <div class="info-block">
+                <h4 class="h2title">基本信息</h4>
                 <div class="text-center">
                     <img class="my-avatar" src="<%=basePath%>resources/image/avatar.png">
                 </div>
-                <div>
-                    <p>姓名:Raven</p>
+                <div class="text-center">
+                    <p>Raven</p>
                     <p>年龄:23</p>
                     <p>性别:男</p>
                     <p>邮箱:<a href="mailto:crow2005@vip.qq.com">crow2005@vip.qq.com</a></p>
                     <p>微博:<a href="http://weibo.com/u/2557929062">lzx2005</a></p>
-
                 </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-block">
+                <h4 class="h2title">本网站源代码</h4>
+                <p>本项目已经在Github上开源，欢迎大家下载围观</p>
+                <a class="button button-block button-primary button-small" href="https://github.com/lzx2005/lzx2005rebuild" target="_blank">下载地址</a>
             </div>
         </div>
 
     </div>
 
-
 </div> <!-- /container -->
-
-<%@include file="../layout/footer.jsp" %>
 <script type="text/javascript">
     $(function () {
         console.log("载入完毕");
-        //loginScript.beforeSubmit();
+        loginScript.initCaptcha();
     });
+
 </script>
+<%@include file="../layout/footer.jsp" %>
 </body>
 </html>

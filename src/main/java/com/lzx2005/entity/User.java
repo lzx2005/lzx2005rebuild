@@ -1,6 +1,5 @@
 package com.lzx2005.entity;
 
-import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +9,6 @@ import java.util.Date;
  */
 public class User implements Serializable{
 
-    @Id
     private long userId;
     private String username;
     private transient String password;

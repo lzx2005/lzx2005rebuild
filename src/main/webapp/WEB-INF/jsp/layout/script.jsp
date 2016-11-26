@@ -19,3 +19,7 @@
 <script src="<%=basePath %>resources/js/md5.js"></script>
 <script src="//cdn.bootcss.com/Buttons/2.0.0/js/buttons.min.js"></script>
 <script src="<%=basePath %>resources/js/custom.js"></script>
+
+
+<!-- 引入封装了failback的接口--initGeetest -->
+<script src="http://static.geetest.com/static/tools/gt.js"></script>

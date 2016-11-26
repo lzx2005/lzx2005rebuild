@@ -146,13 +146,12 @@
       <version>1.2.1</version>
     </dependency>
 
-    <!-- Spring Data Elasticsearch整合 -->
-    <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-elasticsearch</artifactId>
-      <version>2.0.0.RELEASE</version>
-    </dependency>
 
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20090211</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>lzx2005rebuild</finalName>

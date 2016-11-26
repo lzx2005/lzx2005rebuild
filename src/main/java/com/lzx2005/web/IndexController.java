@@ -1,5 +1,7 @@
 package com.lzx2005.web;
 
+import com.geetest.sdk.java.GeetestLib;
+import com.geetest.sdk.java.web.demo.GeetestConfig;
 import com.lzx2005.dto.AjaxResult;
 import com.lzx2005.dto.PageResult;
 import com.lzx2005.dto.ServiceResult;
@@ -19,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
 /**
@@ -81,6 +86,31 @@ public class IndexController {
     )
     @ResponseBody
     public AjaxResult<User> login_sub(HttpServletRequest res){
+
+        GeetestLib gtSdk = new GeetestLib(GeetestConfig.getGeetest_id(), GeetestConfig.getGeetest_key());
+
+        String challenge = res.getParameter(GeetestLib.fn_geetest_challenge);
+        String validate = res.getParameter(GeetestLib.fn_geetest_validate);
+        String seccode = res.getParameter(GeetestLib.fn_geetest_seccode);
+
+        //从session中获取gt-server状态
+        int gt_server_status_code = (Integer) res.getSession().getAttribute(gtSdk.gtServerStatusSessionKey);
+
+        int gtResult = 0;
+
+        if (gt_server_status_code == 1) {
+            //gt-server正常，向gt-server进行二次验证
+            gtResult = gtSdk.enhencedValidateRequest(challenge, validate, seccode);
+            System.out.println(gtResult);
+        } else {
+            // gt-server非正常情况下，进行failback模式验证
+            gtResult = gtSdk.failbackValidateRequest(challenge, validate, seccode);
+        }
+
+        System.out.println(gtResult);
+
+
+        //账号密码验证
         String username = res.getParameter("username");
         String password = res.getParameter("password");
         AjaxResult<User> ajaxResult = null;
@@ -112,4 +142,24 @@ public class IndexController {
         res.getAttribute("user");
         return "redirect:/";
     }
+
+
+    @RequestMapping(
+            value = "/captcha",
+            method = {RequestMethod.GET,RequestMethod.POST},
+            produces = {"text/html"})
+    @ResponseBody
+    public String captcha(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        GeetestLib gtSdk = new GeetestLib(GeetestConfig.getGeetest_id(), GeetestConfig.getGeetest_key());
+
+        String resStr = "{}";
+        int gtServerStatus = gtSdk.preProcess();
+        //将服务器状态设置到session中
+        request.getSession().setAttribute(gtSdk.gtServerStatusSessionKey, gtServerStatus);
+        resStr = gtSdk.getResponseStr();
+        PrintWriter out = response.getWriter();
+        out.println(resStr);
+        return null;
+    }
+
 }
