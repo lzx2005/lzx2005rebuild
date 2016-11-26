@@ -91,13 +91,6 @@
     </div>
 
 </div> <!-- /container -->
-<script type="text/javascript">
-    $(function () {
-        console.log("载入完毕");
-        loginScript.initCaptcha();
-    });
-
-</script>
 <%@include file="../layout/footer.jsp" %>
 </body>
 </html>

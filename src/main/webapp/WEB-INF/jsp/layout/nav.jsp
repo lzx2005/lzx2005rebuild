@@ -37,3 +37,13 @@
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
+<c:choose>
+    <c:when test="${empty sessionScope.user}">
+        <script type="text/javascript">
+            $(function () {
+                console.log("未登陆");
+                loginScript.initCaptcha();
+            });
+        </script>
+    </c:when>
+</c:choose>

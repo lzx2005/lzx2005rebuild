@@ -107,8 +107,9 @@ public class IndexController {
             gtResult = gtSdk.failbackValidateRequest(challenge, validate, seccode);
         }
 
-        System.out.println(gtResult);
-
+        if(gtResult!=1){
+            return new AjaxResult<User>(false,"登陆失败，验证码验证失败",null);
+        }
 
         //账号密码验证
         String username = res.getParameter("username");
