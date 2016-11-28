@@ -11,8 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <%@include file="../layout/seo.jsp" %>
 
     <title>Raven的笔记本</title>
     <base href="<%=basePath %>"/>
@@ -79,8 +78,6 @@
                     <p>微博:<a href="http://weibo.com/u/2557929062">lzx2005</a></p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
             <div class="info-block">
                 <h4 class="h2title">本网站源代码</h4>
                 <p>本项目已经在Github上开源，欢迎大家下载围观</p>
