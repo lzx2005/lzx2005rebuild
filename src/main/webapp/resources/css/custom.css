@@ -9,6 +9,10 @@ body{
     font-family: "Microsoft YaHei UI","Microsoft YaHei UI Light" !important;
 }
 
+img{
+    max-width: 100%;
+}
+
 button{
     border-radius: 0 !important;
 }
