@@ -235,7 +235,8 @@ markdown美化
 }
 
 pre{
-    background-color: #474949 !important;
+    background-color: #474949;
+    border: 1px solid #474949;
 }
 /*
  * 定义一些颜色
