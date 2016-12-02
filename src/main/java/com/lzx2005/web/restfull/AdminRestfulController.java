@@ -223,7 +223,6 @@ public class AdminRestfulController {
         ServiceResult<Blog> result = blogService.getBlog(blogId);
         if(result.isSuccess() && result.getData()!=null){
             //找到blog
-            Blog blog = result.getData();
             ServiceResult<Blog> result1 = blogService.deleteBlog(blogId);
             if(result1.isSuccess()){
                 return new AjaxResult<Blog>(true,"文章已经被成功删除",result.getData());

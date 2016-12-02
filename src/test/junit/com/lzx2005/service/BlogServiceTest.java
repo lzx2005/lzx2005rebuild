@@ -26,7 +26,7 @@ public class BlogServiceTest {
 
     @Test
     public void createBlogWithMarkdown(){
-        ServiceResult<Blog> result = blogService.createBlog("Service test markdown","lzx2005","描述", "test", (short) 0,(short)1,"Linux,Java,PHP");
+        blogService.createBlog("Service test markdown","lzx2005","描述", "test", (short) 0,(short)1,"Linux,Java,PHP");
     }
 
     @Test

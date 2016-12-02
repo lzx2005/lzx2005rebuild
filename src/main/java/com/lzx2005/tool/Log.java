@@ -55,7 +55,7 @@ public class Log {
 	    logger.info(info); 
 	}
 	// 记录debug级别的信息  
-	public static void d(String obj,String msg){
+	public static void d(Object obj,String msg){
 		String info;
 		if(obj instanceof String){
 			info = "Debug :"+obj.toString()+" - "+msg;

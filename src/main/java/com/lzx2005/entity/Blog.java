@@ -1,5 +1,8 @@
 package com.lzx2005.entity;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.Date;
 
 /**
@@ -45,11 +48,18 @@ public class Blog {
     }
 
     public Date getCreateTime() {
-        return createTime;
+        if (createTime == null) {
+            return null;
+        }
+        return (Date) createTime.clone();
     }
 
     public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+        if (createTime == null) {
+            this.createTime = null;
+        } else {
+            this.createTime = (Date) createTime.clone();
+        }
     }
 
     public long getView() {
@@ -115,5 +125,48 @@ public class Blog {
                 ", tags='" + tags + '\'' +
                 ", markdown=" + markdown +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Blog blog = (Blog) o;
+
+        /*return new EqualsBuilder().
+                // if deriving: appendSuper(super.equals(obj)).
+                        append(blogId, blog.blogId).
+                        append(view, blog.view).
+                        isEquals();*/
+
+        if (blogId != blog.blogId) return false;
+        if (view != blog.view) return false;
+        if (blogType != blog.blogType) return false;
+        if (markdown != blog.markdown) return false;
+        if (title != null ? !title.equals(blog.title) : blog.title != null) return false;
+        if (content != null ? !content.equals(blog.content) : blog.content != null) return false;
+        if (author != null ? !author.equals(blog.author) : blog.author != null) return false;
+        if (description != null ? !description.equals(blog.description) : blog.description != null) return false;
+        if (createTime != null ? !createTime.equals(blog.createTime) : blog.createTime != null) return false;
+        return tags != null ? tags.equals(blog.tags) : blog.tags == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        /*new HashCodeBuilder()
+                .append()*/
+        int result = (int) (blogId ^ (blogId >>> 32));
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (int) (view ^ (view >>> 32));
+        result = 31 * result + (int) blogType;
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + (int) markdown;
+        return result;
     }
 }

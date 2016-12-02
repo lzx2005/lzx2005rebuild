@@ -7,7 +7,9 @@ import java.util.Date;
 /**
  * Created by Administrator on 2016/6/19.
  */
-public class User implements Serializable{
+public class User implements Serializable {
+
+
 
     private long userId;
     private String username;
@@ -40,11 +42,18 @@ public class User implements Serializable{
     }
 
     public Date getCreateTime() {
-        return createTime;
+        if (createTime == null) {
+            return null;
+        }
+        return (Date) createTime.clone();
     }
 
     public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+        if (createTime == null) {
+            this.createTime = null;
+        } else {
+            this.createTime = (Date) createTime.clone();
+        }
     }
 
     public short getUserType() {
@@ -64,5 +73,31 @@ public class User implements Serializable{
                 ", createTime=" + createTime +
                 ", userType=" + userType +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (userId != user.userId) return false;
+        if (userType != user.userType) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        return createTime != null ? createTime.equals(user.createTime) : user.createTime == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (userId ^ (userId >>> 32));
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (int) userType;
+        return result;
     }
 }

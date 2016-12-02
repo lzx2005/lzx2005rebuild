@@ -24,7 +24,7 @@ public class UserDaoTest {
 
     @Test
     public void insertUser() throws Exception {
-            int result = userDao.insertUser("lzx2005","e10adc3949ba59abbe56e057f20f883e", (short) 0);
+            userDao.insertUser("lzx2005","e10adc3949ba59abbe56e057f20f883e", (short) 0);
     }
 
     @Test

@@ -31,7 +31,7 @@ public class ImageDaoTest {
         image.setRelativePath("/resource/image/sssss.jpg");
         image.setSize(5000);
         image.setUploadTime(new Date());
-        long id = imageDao.addImageReturnId(image);
+        imageDao.addImageReturnId(image);
         System.out.println(image.getImageId());
     }
 

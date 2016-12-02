@@ -24,7 +24,7 @@ public class BlogDaoTest {
 
     @Test
     public void insertBlogWithMarkdown(){
-        int resule = blogDao.insertBlog("测试标题WithMarkdown","lzx2005","描述","测试内容",(short)0,(short) 1,"Java,Linux");
+        blogDao.insertBlog("测试标题WithMarkdown","lzx2005","描述","测试内容",(short)0,(short) 1,"Java,Linux");
     }
 
     @Test
