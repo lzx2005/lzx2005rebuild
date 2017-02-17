@@ -19,7 +19,11 @@ public class ImageServiceImpl implements ImageService {
     @Autowired
     private ImageDao imageDao;
 
-    public ServiceResult<Image> addImage(String name, long size, String relativePath, String absolutePath, Date uploadTime) {
+    public ServiceResult<Image> addImage(String name,
+                                         long size,
+                                         String relativePath,
+                                         String absolutePath,
+                                         Date uploadTime) {
         Image image = new Image();
         image.setUploadTime(uploadTime);
         image.setSize(size);

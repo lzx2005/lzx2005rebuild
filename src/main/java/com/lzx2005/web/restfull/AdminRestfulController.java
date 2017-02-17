@@ -4,6 +4,7 @@ import com.lzx2005.dao.ImageDao;
 import com.lzx2005.dto.AjaxResult;
 import com.lzx2005.dto.ServiceResult;
 import com.lzx2005.entity.Blog;
+import com.lzx2005.entity.BlogType;
 import com.lzx2005.entity.Image;
 import com.lzx2005.entity.User;
 import com.lzx2005.service.BlogService;
@@ -22,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Restfull on 2016/6/29.
@@ -53,6 +55,16 @@ public class AdminRestfulController {
         return map;
     }
 
+    @RequestMapping(value = "blog/get_all_type", produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public AjaxResult<List<BlogType>> getAllBlogType(){
+        ServiceResult<List<BlogType>> allBlogType = blogService.findAllBlogType();
+        if(allBlogType.isSuccess()){
+            return new AjaxResult<List<BlogType>>(true,"请求成功",allBlogType.getData());
+        }else{
+            return new AjaxResult<List<BlogType>>(false,"请求失败",null);
+        }
+    }
 
     /**
      * 上传图片接口
@@ -138,7 +150,6 @@ public class AdminRestfulController {
     /**
      * 创建文章
      * @param res
-     * @param response
      * @return
      */
     @RequestMapping(
@@ -146,18 +157,19 @@ public class AdminRestfulController {
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public AjaxResult<Blog> createBlog(HttpServletRequest res, HttpServletResponse response){
-        String title = res.getParameter("title");
-        String content = res.getParameter("content");
-        String desc = res.getParameter("desc");
+    public AjaxResult<Blog> createBlog(@RequestParam("title")String title,
+                                       @RequestParam("content")String content,
+                                       @RequestParam("desc")String desc,
+                                       @RequestParam("blog_type")long blog_type,
+                                       HttpServletRequest res){
 
         if(!StrTool.allIsNotNull(title,content,desc)){
             return new AjaxResult<Blog>(false,"缺少参数",null);
         }
-
         User user = (User)res.getSession().getAttribute("user");
         String author = user.getUsername();
-        ServiceResult<Blog> result = blogService.createBlog(title, author,desc, content, (short) 0, (short) 1,"");
+        ServiceResult<Blog> result = blogService.createBlog(title,author,desc,
+                                                                content,blog_type,(short) 1,"");
         if(result.isSuccess()){
             return new AjaxResult<Blog>(true,"文章发布成功",result.getData());
         }else{

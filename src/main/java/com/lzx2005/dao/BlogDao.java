@@ -11,7 +11,13 @@ import java.util.List;
  */
 public interface BlogDao {
 
-    public int insertBlog(@Param("title") String title,@Param("author") String author,@Param("description") String description,@Param("content") String content,@Param("blogType") short blogType,@Param("markdown") short markdown,@Param("tags") String tags);
+    public int insertBlog(@Param("title") String title,
+                          @Param("author") String author,
+                          @Param("description") String description,
+                          @Param("content") String content,
+                          @Param("blogType") long blogType,
+                          @Param("markdown") short markdown,
+                          @Param("tags") String tags);
 
     public Blog queryById(long blogId);
 

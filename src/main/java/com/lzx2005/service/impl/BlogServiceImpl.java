@@ -1,15 +1,18 @@
 package com.lzx2005.service.impl;
 
 import com.lzx2005.dao.BlogDao;
+import com.lzx2005.dao.BlogTypeDao;
 import com.lzx2005.dto.PageResult;
 import com.lzx2005.dto.ServiceResult;
 import com.lzx2005.entity.Blog;
+import com.lzx2005.entity.BlogType;
 import com.lzx2005.service.BlogService;
 import com.lzx2005.tool.PageTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/6/20.
@@ -20,8 +23,16 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogDao blogDao;
 
+    @Autowired
+    private BlogTypeDao blogTypeDao;
 
-    public ServiceResult<Blog> createBlog(String title, String author,String desc, String content, short blogType, short markdown,String tags) {
+    public ServiceResult<Blog> createBlog(String title,
+                                          String author,
+                                          String desc,
+                                          String content,
+                                          long blogType,
+                                          short markdown,
+                                          String tags) {
         int result = blogDao.insertBlog(title, author,desc, content, blogType,markdown,tags);
         ServiceResult<Blog> sr = null;
         Blog blog = null;
@@ -89,6 +100,15 @@ public class BlogServiceImpl implements BlogService {
             }
         }else{
             return new ServiceResult<Blog>(false,"传入参数为空");
+        }
+    }
+
+    public ServiceResult<List<BlogType>> findAllBlogType() {
+        List<BlogType> all = blogTypeDao.findAll();
+        if(all==null){
+            return new ServiceResult<List<BlogType>>(false,"无法找到类型");
+        }else{
+            return new ServiceResult<List<BlogType>>(true,all);
         }
     }
 }

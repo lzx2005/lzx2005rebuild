@@ -21,7 +21,7 @@ CREATE TABLE blog(
 `content` text NOT NULL COMMENT '文章正文',
 `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 `view` bigint NOT NULL DEFAULT 0 COMMENT '浏览量',
-`blog_type` tinyint NOT NULL DEFAULT 0 COMMENT '文章类型,普通0',
+`blog_type` bigint NOT NULL DEFAULT 0 COMMENT '文章类型,普通0',
 `markdown` tinyint NOT NULL DEFAULT 0 COMMENT '是否为Markdown,不是0，是1',
 `tags` VARCHAR(240) NOT NULL COMMENT '文章的标签,以逗号分隔',
 PRIMARY KEY(blog_id)
@@ -37,6 +37,14 @@ CREATE TABLE image(
 `upload_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上传时间',
 PRIMARY KEY(image_id)
 )ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='图片存储';
+
+
+CREATE TABLE blog_type(
+`blog_type_id` bigint NOT NULL AUTO_INCREMENT COMMENT '类型ID',
+`blog_type_name` VARCHAR(120) NOT NULL COMMENT '类型名称',
+`create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建立时间',
+PRIMARY KEY(blog_type_id)
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='文章类型';
 
 
 /*

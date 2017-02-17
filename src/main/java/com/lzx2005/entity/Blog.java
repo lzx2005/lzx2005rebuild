@@ -18,7 +18,7 @@ public class Blog {
     private String description;
     private Date createTime;
     private long view;
-    private short blogType;
+    private long blogType;
     private String tags;
 
     private short markdown;
@@ -70,11 +70,11 @@ public class Blog {
         this.view = view;
     }
 
-    public short getBlogType() {
+    public long getBlogType() {
         return blogType;
     }
 
-    public void setBlogType(short blogType) {
+    public void setBlogType(long blogType) {
         this.blogType = blogType;
     }
 
