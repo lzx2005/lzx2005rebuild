@@ -22,4 +22,4 @@
 
 
 <!-- 引入封装了failback的接口--initGeetest -->
-<script src="<%=basePath %>resources/js/gt.js"></script>
+<script src="https://static.geetest.com/static/tools/gt.js"></script>

@@ -91,6 +91,7 @@ var loginScript = {
                 console.log(data);
                 initGeetest({
                     gt: data.gt,
+                    https: true,
                     challenge: data.challenge,
                     product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
                     offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
