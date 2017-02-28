@@ -1,10 +1,14 @@
-﻿"v0.4.1 Geetest Inc.";
+﻿"v0.4.6 Geetest Inc.";
 
 (function (window) {
     "use strict";
     if (typeof window === 'undefined') {
         throw new Error('Geetest requires browser environment');
     }
+
+var document = window.document;
+var Math = window.Math;
+var head = document.getElementsByTagName("head")[0];
 
 function _Object(obj) {
     this._obj = obj;
@@ -34,9 +38,26 @@ Config.prototype = {
     protocol: 'http://',
     typePath: '/gettype.php',
     fallback_config: {
-        static_servers: ["static.geetest.com", "dn-staticdown.qbox.me"],
-        type: 'slide',
-        slide: '/static/js/geetest.0.0.0.js'
+        slide: {
+            static_servers: ["static.geetest.com", "dn-staticdown.qbox.me"],
+            type: 'slide',
+            slide: '/static/js/geetest.0.0.0.js'
+        },
+        fullpage: {
+            static_servers: ["static.geetest.com", "dn-staticdown.qbox.me"],
+            type: 'fullpage',
+            fullpage: '/static/js/fullpage.0.0.0.js'
+        }
+    },
+    _get_fallback_config: function () {
+        var self = this;
+        if (isString(self.type)) {
+            return self.fallback_config[self.type];
+        } else if (self.new_captcha) {
+            return self.fallback_config.fullpage;
+        } else {
+            return self.fallback_config.slide;
+        }
     },
     _extend: function (obj) {
         var self = this;
@@ -61,10 +82,6 @@ var isFunction = function (value) {
     return (typeof value === 'function');
 };
 
-var document = window.document;
-var Math = window.Math;
-var location = window.location;
-var head = document.getElementsByTagName("head")[0];
 var callbacks = {};
 var status = {};
 
@@ -161,9 +178,20 @@ var jsonp = function (domains, path, config, callback) {
         callback(config);
         return;
     }
+    if (config.offline) {
+        callback(config._get_fallback_config());
+        return;
+    }
+
     var cb = "geetest_" + random();
     window[cb] = function (data) {
-        callback(data);
+        if (data.status == 'success') {
+            callback(data.data);
+        } else if (!data.status) {
+            callback(data);
+        } else {
+            callback(config._get_fallback_config());
+        }
         window[cb] = undefined;
         try {
             delete window[cb];
@@ -175,7 +203,7 @@ var jsonp = function (domains, path, config, callback) {
         callback: cb
     }, function (err) {
         if (err) {
-            callback(config.fallback_config);
+            callback(config._get_fallback_config());
         }
     });
 };
@@ -207,7 +235,7 @@ window.initGeetest = function (userConfig, callback) {
     if (userConfig.https) {
         config.protocol = 'https://';
     } else if (!userConfig.protocol) {
-        config.protocol = location.protocol + '//';
+        config.protocol = window.location.protocol + '//';
     }
 
     // for KFC

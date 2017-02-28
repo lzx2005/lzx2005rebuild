@@ -13,15 +13,15 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${driver}"/>
         <property name="jdbcUrl" value="${url}"/>
-        <property name="user" value="${user}"/>
+        <property name="user" value="${username}"/>
         <property name="password" value="${password}"/>
 
         <!-- 系统初始化连接数 -->
-        <property name="initialPoolSize" value="10"/>
+        <property name="initialPoolSize" value="100"/>
         <!-- 最大连接数-->
-        <property name="maxPoolSize" value="30"/>
+        <property name="maxPoolSize" value="3000"/>
         <!-- 最小连接数-->
-        <property name="minPoolSize" value="10"/>
+        <property name="minPoolSize" value="100"/>
         <!-- 关闭连接后不自动commit -->
         <property name="autoCommitOnClose" value="false"/>
         <!-- 获取连接超时时间 -->
