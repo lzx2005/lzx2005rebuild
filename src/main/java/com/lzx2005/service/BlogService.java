@@ -29,4 +29,6 @@ public interface BlogService {
     public ServiceResult<Blog> editBlog(Blog blog);
 
     public ServiceResult<List<BlogType>> findAllBlogType();
+
+    public ServiceResult<PageResult<BlogType>> getAllBlogType(int page, int pageSize);
 }

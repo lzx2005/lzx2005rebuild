@@ -4,6 +4,7 @@ import com.lzx2005.dao.BlogDao;
 import com.lzx2005.dto.PageResult;
 import com.lzx2005.dto.ServiceResult;
 import com.lzx2005.entity.Blog;
+import com.lzx2005.entity.BlogType;
 import com.lzx2005.entity.User;
 import com.lzx2005.service.BlogService;
 import com.lzx2005.setting.Var;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/6/29.
@@ -51,6 +53,16 @@ public class AdminController {
         model.addAttribute("blogs",allBlog);
         return "admin/common/blog";
     }
+
+
+
+    @RequestMapping("/admin/type")
+    public String type(HttpServletRequest res,Model model){
+        ServiceResult<List<BlogType>> allBlogType = blogService.findAllBlogType();
+        model.addAttribute("blogtypes",allBlogType);
+        return "admin/common/type";
+    }
+
 
     @RequestMapping("/admin/blog_edit")
     public String edit(@RequestParam("blog_id") long blogId, HttpServletRequest res, Model model){

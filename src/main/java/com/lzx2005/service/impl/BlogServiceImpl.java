@@ -111,4 +111,9 @@ public class BlogServiceImpl implements BlogService {
             return new ServiceResult<List<BlogType>>(true,all);
         }
     }
+
+    @Override
+    public ServiceResult<PageResult<BlogType>> getAllBlogType(int page, int pageSize) {
+        return null;
+    }
 }

@@ -40,6 +40,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="title" class="col-sm-1 control-label">类型：</label>
+                    <div class="col-sm-11">
+                        <p class="form-control-static" id="loading">读取中...</p>
+                        <select class="form-control" name="blog_type" id="blog_type" style="display: none">
+                            <option value="0">默认</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-1 control-label">Markdown：</label>
                     <div class="col-sm-11">
                         <textarea class="form-control" rows="30" id="content" name="content">${blog.data.content }</textarea>
@@ -56,11 +65,37 @@
     </div>
 </div>
 <script type="text/javascript">
+
+    $(function () {
+        //当页面加载完成
+        //1.发起请求获取文章类型
+        $.post("<%=basePath%>admin_restful/blog/get_all_type",{
+            a:1
+        },function (data,status) {
+            //2.填到select里面
+            var list = data['data'];
+            var blogTypeSelect = $("#blog_type");
+            for(var i=0;i<list.length;i++){
+                var type = list[i];
+                console.log(type['blogTypeId'],type['blogTypeName']);
+                blogTypeSelect.append('<option value="'+type['blogTypeId']+'">'+type['blogTypeName']+'</option>');
+
+            }
+            setTimeout(function () {
+                $("#loading").hide();
+                blogTypeSelect.show();
+            }, 1000);
+            console.log('加载完毕');
+        });
+    })
+
+
     function saveBlog() {
         var title = $("#title").val();
         var content = $("#content").val();
         var desc = $("#desc").val();
         var blog_id = $("#blog_id").val();
+        var blog_type = $("#blog_type").val();
         if(title==""){
             alert("请填写博客标题");
         }else if(content=="") {
@@ -72,7 +107,8 @@
                 title : title,
                 content : content,
                 desc : desc,
-                blog_id : blog_id
+                blog_id : blog_id,
+                blog_type : blog_type
             }, function(data, status) {
                 console.log(data);
                 if(data['success']==true){

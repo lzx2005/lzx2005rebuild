@@ -1,11 +1,17 @@
 package com.lzx2005.entity;
 
+import com.alibaba.fastjson.JSON;
+
+import java.util.Date;
+
+
 /**
  * Created by Lizhengxian on 2017/2/17.
  */
 public class BlogType {
     private long blogTypeId;
     private String blogTypeName;
+    private Date createTime;
 
     public long getBlogTypeId() {
         return blogTypeId;
@@ -23,11 +29,16 @@ public class BlogType {
         this.blogTypeName = blogTypeName;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
-        return "BlogType{" +
-                "blogTypeId=" + blogTypeId +
-                ", blogTypeName='" + blogTypeName + '\'' +
-                '}';
+        return JSON.toJSONString(this);
     }
 }

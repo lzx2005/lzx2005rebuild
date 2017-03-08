@@ -184,7 +184,8 @@ public class AdminRestfulController {
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public AjaxResult<Blog> editBlog(HttpServletRequest res, HttpServletResponse response){
+    public AjaxResult<Blog> editBlog(HttpServletRequest res, HttpServletResponse response,
+                                     @RequestParam(value = "blog_type",required = true,defaultValue = "0") long blog_type){
         String title = res.getParameter("title");
         String content = res.getParameter("content");
         String desc = res.getParameter("desc");
@@ -209,6 +210,7 @@ public class AdminRestfulController {
             blog.setAuthor(author);
             blog.setContent(content);
             blog.setDescription(desc);
+            blog.setBlogType(blog_type);
             ServiceResult<Blog> blogServiceResult = blogService.editBlog(blog);
             if(blogServiceResult.isSuccess()){
                 return new AjaxResult<Blog>(true,"文章修改成功",result.getData());
