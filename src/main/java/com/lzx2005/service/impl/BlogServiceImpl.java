@@ -137,6 +137,27 @@ public class BlogServiceImpl implements BlogService {
         return null;
     }
 
+    public ServiceResult<BlogType> createBlogType(String blogTypeName) {
+        int insert = blogTypeDao.insert(blogTypeName);
+        if(insert>0){
+            return new ServiceResult<BlogType>(true,"创建成功");
+        }else{
+            return new ServiceResult<BlogType>(false,"创建失败");
+        }
+    }
+
+    public ServiceResult<BlogType> editBlogType(long blogTypeId, String blogTypeName) {
+        BlogType blogType = blogTypeDao.queryById(blogTypeId);
+        if(blogType!=null){
+            blogType.setBlogTypeName(blogTypeName);
+            int update = blogTypeDao.update(blogType);
+            if(update>0){
+                return new ServiceResult<BlogType>(true,"修改成功");
+            }
+        }
+        return new ServiceResult<BlogType>(false,"修改失败");
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public ServiceResult<BlogType> deleteBlogType(long blogTypeId) {
         List<Blog> allBlogByBlogType = blogDao.findAllByBlogType(blogTypeId);

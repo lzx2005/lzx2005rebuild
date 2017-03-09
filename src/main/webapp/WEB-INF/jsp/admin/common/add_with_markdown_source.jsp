@@ -88,7 +88,7 @@
             setTimeout(function () {
                 $("#loading").hide();
                 blogTypeSelect.show();
-            }, 1000);
+            }, 100);
             console.log('加载完毕');
         });
     })

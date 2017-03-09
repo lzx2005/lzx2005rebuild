@@ -34,5 +34,9 @@ public interface BlogService {
 
     public ServiceResult<PageResult<BlogType>> getAllBlogType(int page, int pageSize);
 
+    public ServiceResult<BlogType> createBlogType(String blogTypeName);
+
+    public ServiceResult<BlogType> editBlogType(long blogTypeId,String blogTypeName);
+
     public ServiceResult<BlogType> deleteBlogType(long blogTypeId);
 }

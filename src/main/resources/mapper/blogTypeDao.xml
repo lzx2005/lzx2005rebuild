@@ -34,4 +34,12 @@
       group by
         blog_type
     </select>
+
+
+    <update id="update" parameterType="BlogType">
+        UPDATE `blog_type`
+        SET
+            blog_type_name=#{blogTypeName}
+        WHERE blog_type_id = #{blogTypeId};
+    </update>
 </mapper>

@@ -73,18 +73,23 @@
             a:1
         },function (data,status) {
             //2.填到select里面
+            var blogType = ${blog.data.blogType };
+
             var list = data['data'];
             var blogTypeSelect = $("#blog_type");
             for(var i=0;i<list.length;i++){
                 var type = list[i];
                 console.log(type['blogTypeId'],type['blogTypeName']);
-                blogTypeSelect.append('<option value="'+type['blogTypeId']+'">'+type['blogTypeName']+'</option>');
-
+                if(blogType==type['blogTypeId']){
+                    blogTypeSelect.append('<option value="'+type['blogTypeId']+'" selected>'+type['blogTypeName']+'</option>');
+                }else {
+                    blogTypeSelect.append('<option value="'+type['blogTypeId']+'">'+type['blogTypeName']+'</option>');
+                }
             }
             setTimeout(function () {
                 $("#loading").hide();
                 blogTypeSelect.show();
-            }, 1000);
+            }, 100);
             console.log('加载完毕');
         });
     })

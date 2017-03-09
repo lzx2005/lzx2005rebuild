@@ -17,5 +17,5 @@
 <%--<script src="<%=basePath %>resources/admin/js/holder.min.js"></script>--%>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<%=basePath %>resources/admin/js/ie10-viewport-bug-workaround.js"></script>
-<script src="//cdn.bootcss.com/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+<script src="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="<%=basePath %>resources/js/admin.js"></script>

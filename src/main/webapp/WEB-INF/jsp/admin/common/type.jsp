@@ -44,14 +44,14 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td><button class="btn btn-primary" onclick="blogScript.doDelete(${item.blogTypeId })">添加</button></td>
+                        <td><button class="btn btn-primary" onclick="blogTypeScript.doCreate()">添加</button></td>
                     </tr>
                     <c:forEach var="item" items="${blogtypes.data }" varStatus="status">
                         <tr>
                             <td>${item.blogTypeId }</td>
                             <td>${item.blogTypeName }</td>
                             <td><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                            <td><a href="<%=basePath%>admin/blog_edit?blog_id=${item.blogTypeId }" class="btn btn-primary">编辑</a>&nbsp;<button class="btn btn-danger" onclick="blogTypeScript.doDelete(${item.blogTypeId })">删除</button></td>
+                            <td><button class="btn btn-primary" onclick="blogTypeScript.doEdit(${item.blogTypeId },'${item.blogTypeName }')">编辑</button>&nbsp;<button class="btn btn-danger" onclick="blogTypeScript.doDelete(${item.blogTypeId })">删除</button></td>
                         </tr>
                     </c:forEach>
                     </tbody>

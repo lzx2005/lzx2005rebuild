@@ -22,4 +22,6 @@ public interface BlogTypeDao {
     public List<BlogType> findAll();
 
     public List<BlogType> findAllTypeGroupByBlogs();
+
+    public int update(BlogType blogType);
 }
