@@ -67,6 +67,26 @@ public class BlogServiceImpl implements BlogService {
         return new ServiceResult<PageResult<Blog>>(true,pageResult);
     }
 
+
+    public ServiceResult<PageResult<Blog>> getAllBlogByBlogType(int page, int pageSize,long blogTypeId) {
+        //计算共多少条Blog
+        long countBlog = blogDao.countBlogByType(blogTypeId);
+        //计算一共多少页
+        int totalPage = new PageTool().getPage(countBlog,pageSize);
+        System.out.println(totalPage);
+
+        PageResult<Blog> pageResult = new PageResult<Blog>();
+        pageResult.setCurPage(page);
+        pageResult.setPageSize(pageSize);
+        pageResult.setTotalRow(countBlog);
+        pageResult.setTotalPage(totalPage);
+        int offset = (page - 1) * pageSize;
+        int limit = pageSize;
+        ArrayList<Blog> blogs = blogDao.findAllByBlogTypeAndLimit(offset, limit,blogTypeId);
+        pageResult.setList(blogs);
+        return new ServiceResult<PageResult<Blog>>(true,pageResult);
+    }
+
     public ServiceResult<Blog> getBlog(long blogId) {
         Blog blog = blogDao.queryById(blogId);
         ServiceResult<Blog> sr = null;

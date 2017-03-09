@@ -12,13 +12,11 @@ import com.lzx2005.service.UserService;
 import com.lzx2005.setting.Var;
 import com.lzx2005.tool.Log;
 import com.lzx2005.tool.StrTool;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,13 +41,18 @@ public class IndexController {
      * @return String
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(HttpServletRequest res,Model model){
+    public String index(HttpServletRequest res, Model model, @RequestParam(value = "type",required = false,defaultValue = "-1") Long type){
         String page = res.getParameter("page");
         int pageint = 1;
         if(StrTool.isNotNull(page)){
             pageint = Integer.parseInt(page);
         }
-        ServiceResult<PageResult<Blog>> allBlog = blogService.getAllBlog(pageint, Var.DEFAULT_PAGE_SIZE);
+        ServiceResult<PageResult<Blog>> allBlog;
+        if(type!=null&&type!=-1){
+            allBlog = blogService.getAllBlogByBlogType(pageint, Var.DEFAULT_PAGE_SIZE,type);
+        }else{
+            allBlog = blogService.getAllBlog(pageint,Var.DEFAULT_PAGE_SIZE);
+        }
         model.addAttribute("blogs",allBlog);
         return "common/index";
     }

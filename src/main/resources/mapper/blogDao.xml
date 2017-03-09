@@ -21,6 +21,11 @@
         select count(1) from blog;
     </select>
 
+
+    <select id="countBlogByType" resultType="long">
+        select count(1) from blog WHERE blog_type = #{blogTypeId}
+    </select>
+
     <update id="deleteBlog">
         DELETE FROM `blog` WHERE blog_id = #{blogId};
     </update>

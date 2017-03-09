@@ -22,6 +22,8 @@ public interface BlogService {
 
     public ServiceResult<PageResult<Blog>> getAllBlog(int page, int pageSize);
 
+    public ServiceResult<PageResult<Blog>> getAllBlogByBlogType(int page, int pageSize,long blogTypeId);
+
     public ServiceResult<Blog> getBlog(long blogId);
 
     public ServiceResult<Blog> deleteBlog(long blogId);

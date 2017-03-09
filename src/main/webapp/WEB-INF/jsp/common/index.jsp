@@ -112,15 +112,15 @@
             //2.填到select里面
             var list = data['data'];
             var blogTypeListDiv = $("#blogTypeListDiv");
-
+            blogTypeListDiv.append('<p><a class="blog_type_a" href="<%=basePath%>">所有文章'+'</a></p>');
             for(var i=0;i<list.length;i++){
                 var type = list[i];
                 console.log(type['blogTypeId'],type['blogTypeName'],type['count']);
                 if(type['blogTypeId']==0){
-                    blogTypeListDiv.append('<p><a class="blog_type_a" href="/" id="'+type['blogTypeId']+'">默认('+type['count']+')'+'</a></p>');
+                    blogTypeListDiv.append('<p><a class="blog_type_a" href="<%=basePath%>?type='+type['blogTypeId']+'">默认('+type['count']+')'+'</a></p>');
                     continue;
                 }
-                blogTypeListDiv.append('<p><a class="blog_type_a"  href="/" id="'+type['blogTypeId']+'">'+type['blogTypeName']+'('+type['count']+')'+'</a></p>');
+                blogTypeListDiv.append('<p><a class="blog_type_a"  href="<%=basePath%>?type='+type['blogTypeId']+'" >'+type['blogTypeName']+'('+type['count']+')'+'</a></p>');
 
             }
             setTimeout(function () {
