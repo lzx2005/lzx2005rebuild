@@ -8,11 +8,30 @@
         VALUES (#{blogTypeName})
     </insert>
 
+    <delete id="delete">
+        DELETE from `blog_type` where blog_type_id = #{blogTypeId}
+    </delete>
+
     <select id="queryById" resultType="com.lzx2005.entity.BlogType">
         SELECT * FROM `blog_type` WHERE blog_type_id = #{blogTypeId}
     </select>
 
     <select id="findAll" resultType="com.lzx2005.entity.BlogType">
         select * from `blog_type`;
+    </select>
+
+    <select id="findAllTypeGroupByBlogs" resultType="com.lzx2005.entity.BlogType">
+      select
+        blog_type.blog_type_name,
+        blog_type.blog_type_id,
+        count(blog_type) as count
+      from
+        blog
+      left JOIN
+        blog_type
+      on
+        blog.blog_type = blog_type.blog_type_id
+      group by
+        blog_type
     </select>
 </mapper>

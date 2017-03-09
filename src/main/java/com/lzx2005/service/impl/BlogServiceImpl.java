@@ -10,6 +10,7 @@ import com.lzx2005.service.BlogService;
 import com.lzx2005.tool.PageTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,8 +113,20 @@ public class BlogServiceImpl implements BlogService {
         }
     }
 
-    @Override
     public ServiceResult<PageResult<BlogType>> getAllBlogType(int page, int pageSize) {
         return null;
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public ServiceResult<BlogType> deleteBlogType(long blogTypeId) {
+        List<Blog> allBlogByBlogType = blogDao.findAllByBlogType(blogTypeId);
+        for(Blog blog : allBlogByBlogType){
+            blog.setBlogType(0);
+            blogDao.updateBlog(blog);
+        }
+        blogTypeDao.delete(blogTypeId);
+        return new ServiceResult<BlogType>(true,"删除成功");
+    }
+
+
 }

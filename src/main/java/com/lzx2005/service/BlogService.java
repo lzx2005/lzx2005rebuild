@@ -31,4 +31,6 @@ public interface BlogService {
     public ServiceResult<List<BlogType>> findAllBlogType();
 
     public ServiceResult<PageResult<BlogType>> getAllBlogType(int page, int pageSize);
+
+    public ServiceResult<BlogType> deleteBlogType(long blogTypeId);
 }

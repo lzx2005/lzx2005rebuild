@@ -12,6 +12,7 @@ public class BlogType {
     private long blogTypeId;
     private String blogTypeName;
     private Date createTime;
+    private int count;
 
     public long getBlogTypeId() {
         return blogTypeId;
@@ -35,6 +36,15 @@ public class BlogType {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     @Override

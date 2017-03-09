@@ -28,4 +28,8 @@ public interface BlogDao {
     public int deleteBlog(@Param("blogId")long blogId);
 
     public int updateBlog(Blog blog);
+
+    public List<Blog> findAllByBlogType(long blogTypeId);
+
+    public ArrayList<Blog> findAllByBlogTypeAndLimit(@Param("offset") int offset, @Param("limit") int limit,@Param("blogTypeId") long blogTypeId);
 }

@@ -27,7 +27,7 @@
         <%@include file="../layout/menu.jsp"%>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-            <h2 class="sub-header">Blog List</h2>
+            <h2 class="sub-header">Blog Type List</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -40,12 +40,18 @@
                     </thead>
                     <tbody>
 
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><button class="btn btn-primary" onclick="blogScript.doDelete(${item.blogTypeId })">添加</button></td>
+                    </tr>
                     <c:forEach var="item" items="${blogtypes.data }" varStatus="status">
                         <tr>
                             <td>${item.blogTypeId }</td>
                             <td>${item.blogTypeName }</td>
                             <td><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                            <td><a href="<%=basePath%>admin/blog_edit?blog_id=${item.blogTypeId }" class="btn btn-primary">编辑</a>&nbsp;<button class="btn btn-danger" onclick="blogScript.doDelete(${item.blogTypeId })">删除</button></td>
+                            <td><a href="<%=basePath%>admin/blog_edit?blog_id=${item.blogTypeId }" class="btn btn-primary">编辑</a>&nbsp;<button class="btn btn-danger" onclick="blogTypeScript.doDelete(${item.blogTypeId })">删除</button></td>
                         </tr>
                     </c:forEach>
                     </tbody>

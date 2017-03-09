@@ -37,4 +37,15 @@
             tags=#{tags}
         WHERE blog_id = #{blogId};
     </update>
+
+    <select id="findAllByBlogType" resultType="com.lzx2005.entity.Blog">
+        select * from `blog` where blog_type = #{blogTypeId}
+    </select>
+
+    <select id="findAllByBlogTypeAndLimit" resultType="com.lzx2005.entity.Blog">
+        SELECT * FROM `blog`
+        WHERE blog_type = #{blogTypeId}
+        ORDER BY create_time DESC
+        LIMIT #{offset},#{limit}
+    </select>
 </mapper>

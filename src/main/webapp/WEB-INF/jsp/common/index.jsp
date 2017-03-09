@@ -78,6 +78,17 @@
                     <p>微博:<a href="http://weibo.com/u/2557929062">lzx2005</a></p>
                 </div>
             </div>
+
+
+            <div class="info-block">
+                <h4 class="h2title">文章分类</h4>
+                <div id="loadingDiv">
+                    Loading...
+                </div>
+                <div id="blogTypeListDiv" style="display: none">
+                </div>
+            </div>
+
             <div class="info-block">
                 <h4 class="h2title">本网站源代码</h4>
                 <p>本项目已经在Github上开源，欢迎大家下载围观</p>
@@ -90,4 +101,34 @@
 </div> <!-- /container -->
 <%@include file="../layout/footer.jsp" %>
 </body>
+
+
+<script type="text/javascript">
+    $(function () {
+        console.log("载入完毕");
+        $.post("<%=basePath%>public/getAllBlogType",{
+            a:1
+        },function (data,status) {
+            //2.填到select里面
+            var list = data['data'];
+            var blogTypeListDiv = $("#blogTypeListDiv");
+
+            for(var i=0;i<list.length;i++){
+                var type = list[i];
+                console.log(type['blogTypeId'],type['blogTypeName'],type['count']);
+                if(type['blogTypeId']==0){
+                    blogTypeListDiv.append('<p><a class="blog_type_a" href="/" id="'+type['blogTypeId']+'">默认('+type['count']+')'+'</a></p>');
+                    continue;
+                }
+                blogTypeListDiv.append('<p><a class="blog_type_a"  href="/" id="'+type['blogTypeId']+'">'+type['blogTypeName']+'('+type['count']+')'+'</a></p>');
+
+            }
+            setTimeout(function () {
+                $("#loadingDiv").hide();
+                blogTypeListDiv.show();
+            }, 1000);
+            console.log('加载完毕');
+        });
+    });
+</script>
 </html>

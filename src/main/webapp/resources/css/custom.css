@@ -29,6 +29,10 @@ a{
     color: black;
 }
 
+.blog_type_a{
+    color: black;
+}
+
 input{
     border-radius: 0 !important;
 }

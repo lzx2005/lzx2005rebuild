@@ -1,5 +1,7 @@
 package com.lzx2005.web.restfull;
 
+import com.lzx2005.dao.BlogDao;
+import com.lzx2005.dao.BlogTypeDao;
 import com.lzx2005.dao.ImageDao;
 import com.lzx2005.dto.AjaxResult;
 import com.lzx2005.dto.ServiceResult;
@@ -38,6 +40,7 @@ public class AdminRestfulController {
 
     @Autowired
     private BlogService blogService;
+
 
     /**
      * 测试接口
@@ -245,6 +248,28 @@ public class AdminRestfulController {
             }
         }else{
             return new AjaxResult<Blog>(false,"删除失败，找不到该文章",null);
+        }
+    }
+
+
+
+
+    @RequestMapping(
+            value = "blog_type/delete",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public AjaxResult<Blog> deleteBlogType(@RequestParam("blogTypeId")long blogTypeId){
+        try {
+            ServiceResult<BlogType> blogTypeServiceResult = blogService.deleteBlogType(blogTypeId);
+            if(blogTypeServiceResult.isSuccess()){
+                return new AjaxResult<Blog>(true,"删除成功",null);
+            }else{
+                return new AjaxResult<Blog>(false,"删除失败",null);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            return new AjaxResult<Blog>(false,"删除失败",null);
         }
     }
 }
